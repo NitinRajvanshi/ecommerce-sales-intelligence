@@ -1,229 +1,820 @@
-# E-Commerce Sales Intelligence Platform
+# 📊 E-Commerce Sales Intelligence Platform
 
-## Overview
+> **From raw transactions to business decisions — an end-to-end Data Engineering + Analytics project built with Python, SQL and Streamlit.**
 
-A compact end-to-end Data Analytics + Data Engineering portfolio project for an e-commerce business. It generates reproducible transaction data, runs an ETL pipeline, stores analytical data in SQLite, executes SQL analytics, and exposes interactive business dashboards through Streamlit.
+<p align="center">
 
-## Features
+**🔄 ETL** &nbsp;→&nbsp; **🧹 Data Quality** &nbsp;→&nbsp; **🗄️ SQLite** &nbsp;→&nbsp; **🔎 SQL Analytics** &nbsp;→&nbsp; **📈 Interactive Dashboard** &nbsp;→&nbsp; **💡 Business Insights**
 
-- Reproducible raw data generation
-- ETL and data-quality handling
-- Feature engineering and KPI calculation
-- SQLite analytical database
-- SQL business queries
-- Executive KPI dashboard
-- Product analytics
-- Customer analytics and revenue-based segmentation
-- Interactive date/region/category/product filters
-- Filtered CSV export
-- Dynamic business insights
-- Streamlit Community Cloud deployment ready
+</p>
 
-## Architecture
+---
+
+## 🚀 Live Dashboard
+
+🔗 **[Launch the Live Streamlit Dashboard](YOUR_STREAMLIT_APP_URL)**
+
+> Replace `YOUR_STREAMLIT_APP_URL` with your Streamlit Community Cloud URL after deployment.
+
+---
+
+## 🎯 What is this project?
+
+E-commerce businesses generate thousands of transactions every day, but **raw transaction data alone does not create business value**.
+
+This project demonstrates how raw sales data can be transformed into a reliable analytical dataset and finally into an interactive decision-support dashboard.
+
+The platform simulates an e-commerce business with **20,000+ transactions** across:
+
+- 🛒 5 product categories
+- 📦 25 products
+- 🌎 5 sales regions
+- 👥 3,500+ customers
+- 💳 Multiple payment methods
+- 📅 Approximately 2 years of transactions
+
+The objective is simple:
+
+> **Turn messy transactional data into clear answers for business stakeholders.**
+
+---
+
+# 🧠 Business Problem
+
+Imagine you are a Data Analyst / Data Engineer working for an e-commerce company.
+
+Management wants answers to questions such as:
+
+- Which category generates the most revenue?
+- Which products are the biggest revenue drivers?
+- Which category is actually the most profitable?
+- Which region performs best?
+- Is revenue growing or declining over time?
+- Who are the highest-value customers?
+- What is the average order value?
+- How much discount is being given?
+- Which products should receive more attention?
+
+Instead of manually analysing spreadsheets, this project creates a **repeatable data pipeline + analytical database + interactive dashboard** to answer these questions.
+
+---
+
+# 🏗️ Architecture
 
 ```text
-Raw Data
-   ↓
-etl/pipeline.py
-   ↓
-Data Cleaning + Feature Engineering
-   ↓
-data/cleaned_sales.csv
-   ↓
-SQLite (sales.db)
-   ↓
-sql/analytics.sql
-   ↓
-Streamlit Dashboard (app.py)
+                 ┌──────────────────────┐
+                 │   RAW SALES DATA     │
+                 │   raw_sales.csv      │
+                 └──────────┬───────────┘
+                            │
+                            ▼
+                 ┌──────────────────────┐
+                 │    PYTHON ETL        │
+                 │                      │
+                 │ Extract              │
+                 │ Transform            │
+                 │ Validate             │
+                 │ Feature Engineering  │
+                 │ Load                 │
+                 └──────────┬───────────┘
+                            │
+                  ┌─────────┴─────────┐
+                  ▼                   ▼
+        ┌─────────────────┐   ┌─────────────────┐
+        │ CLEANED CSV     │   │   SQLite DB     │
+        │ cleaned_sales   │   │    sales.db     │
+        └─────────────────┘   └────────┬────────┘
+                                       │
+                                       ▼
+                              ┌─────────────────┐
+                              │  SQL ANALYTICS  │
+                              │ analytics.sql   │
+                              └────────┬────────┘
+                                       │
+                                       ▼
+                              ┌─────────────────┐
+                              │    STREAMLIT    │
+                              │    DASHBOARD    │
+                              └────────┬────────┘
+                                       │
+                                       ▼
+                         ┌────────────────────────┐
+                         │   BUSINESS INSIGHTS    │
+                         │                        │
+                         │ Revenue • Profit       │
+                         │ Products • Customers   │
+                         │ Regions • Trends       │
+                         └────────────────────────┘
 ```
 
-## Technologies
+---
 
-- Python 3
-- Pandas
-- NumPy
-- SQLite
-- SQL
-- Streamlit
-- Plotly
-- Git/GitHub
+# ✨ Key Features
 
-## Project Structure
+### 🔄 Data Engineering
+
+- Reproducible synthetic e-commerce data generation
+- 20,000+ transaction records
+- Automated ETL pipeline
+- Duplicate detection and removal
+- Missing-value handling
+- Data type validation
+- Business-rule validation
+- Feature engineering
+- SQLite loading
+
+### 📊 Data Analytics
+
+- Revenue analysis
+- Profit analysis
+- Profit margin analysis
+- Average Order Value
+- Monthly performance
+- Category performance
+- Regional performance
+- Product performance
+- Customer analysis
+- Customer segmentation
+
+### 🎨 Interactive Dashboard
+
+- Executive Overview
+- Product Analytics
+- Customer Analytics
+- Data Explorer
+- Interactive date filtering
+- Region filtering
+- Category filtering
+- Product filtering
+- Interactive Plotly charts
+- Dynamic business insights
+- Filtered CSV download
+
+---
+
+# 📌 Dashboard
+
+## 1️⃣ Executive Overview
+
+The executive page provides a high-level snapshot of the business.
+
+### KPIs
+
+| KPI | Description |
+|---|---|
+| 💰 Total Revenue | Total sales revenue after discounts |
+| 📈 Total Profit | Estimated profit generated |
+| 🛒 Total Orders | Number of unique orders |
+| 👥 Total Customers | Number of unique customers |
+| 🧾 Average Order Value | Average revenue per order |
+| 📊 Profit Margin | Profit as a percentage of revenue |
+
+### Visualizations
+
+- Revenue over time
+- Revenue by category
+- Revenue by region
+- Profit by category
+- Monthly order trend
+- Top 10 products by revenue
+
+---
+
+# 2️⃣ Product Analytics
+
+Understand which products and categories are driving the business.
+
+### Analysis includes
+
+- 🥇 Top 10 products by revenue
+- 💵 Top 10 products by profit
+- 📦 Revenue by category
+- 📈 Profit by category
+- 🛍️ Quantity sold by category
+
+This helps answer:
+
+> **Are the products generating the most sales also generating the most profit?**
+
+---
+
+# 3️⃣ Customer Analytics
+
+The customer page focuses on customer value.
+
+### Metrics
+
+- Total customers
+- Average revenue per customer
+- Average orders per customer
+- Top 10 customers
+
+### Customer Segmentation
+
+Customers are segmented based on their revenue contribution:
 
 ```text
-ecommerce-analytics/
-├── app.py
-├── data/
+                 CUSTOMER VALUE
+
+        ┌─────────────────────────┐
+        │       HIGH VALUE        │
+        │    Top revenue users    │
+        └─────────────────────────┘
+
+        ┌─────────────────────────┐
+        │      MEDIUM VALUE       │
+        │    Mid-tier customers   │
+        └─────────────────────────┘
+
+        ┌─────────────────────────┐
+        │       LOW VALUE         │
+        │    Lower revenue users  │
+        └─────────────────────────┘
+```
+
+This gives management a simple way to understand customer concentration.
+
+---
+
+# 4️⃣ Data Explorer
+
+A transaction-level view of the cleaned dataset.
+
+Users can filter by:
+
+- 📅 Date
+- 🌎 Region
+- 🏷️ Category
+- 📦 Product
+
+Displayed fields include:
+
+```text
+Order ID
+Date
+Customer
+Region
+Category
+Product
+Quantity
+Revenue
+Profit
+```
+
+The filtered data can also be downloaded as a CSV.
+
+---
+
+# 🧹 ETL Pipeline
+
+The ETL pipeline is the core Data Engineering component.
+
+## Extract
+
+Raw transactions are read from:
+
+```text
+data/raw_sales.csv
+```
+
+## Transform
+
+The pipeline performs:
+
+### 1. Duplicate removal
+
+Duplicate `order_id` values are identified and removed.
+
+### 2. Missing-value handling
+
+Missing categorical values are assigned sensible defaults.
+
+### 3. Data validation
+
+The pipeline validates:
+
+- Dates
+- Quantity
+- Unit price
+- Discount
+- Categories
+- Regions
+
+### 4. Standardization
+
+Text dimensions such as category and region are cleaned and standardized.
+
+### 5. Feature engineering
+
+The following analytical fields are created:
+
+```text
+gross_sales
+discount_amount
+revenue
+estimated_cost
+profit
+profit_margin
+order_month
+order_year
+order_year_month
+```
+
+### Revenue calculation
+
+```text
+Gross Sales = Quantity × Unit Price
+
+Discount Amount = Gross Sales × Discount
+
+Revenue = Gross Sales − Discount Amount
+```
+
+### Profit calculation
+
+```text
+Estimated Cost = Revenue × Cost Percentage
+
+Profit = Revenue − Estimated Cost
+
+Profit Margin = Profit / Revenue
+```
+
+---
+
+# 🗄️ Data Storage
+
+The cleaned dataset is stored in two formats:
+
+### CSV
+
+```text
+data/cleaned_sales.csv
+```
+
+Useful for:
+
+- Inspection
+- Data sharing
+- Lightweight analysis
+
+### SQLite
+
+```text
+sales.db
+```
+
+Useful for:
+
+- SQL analytics
+- Structured querying
+- Dashboard data access
+
+Indexes are created on commonly queried fields such as:
+
+```text
+order_date
+category
+region
+```
+
+---
+
+# 🔎 SQL Analytics
+
+The project includes a dedicated SQL analytics file:
+
+```text
+sql/analytics.sql
+```
+
+It contains queries for:
+
+1. Total revenue
+2. Total profit
+3. Total orders
+4. Total customers
+5. Average order value
+6. Revenue by month
+7. Revenue by category
+8. Revenue by region
+9. Profit by category
+10. Top 10 products
+11. Top 10 customers
+12. Monthly order count
+13. Average discount by category
+14. Profit margin by category
+
+This separates the **data engineering layer** from the **business analytics layer**.
+
+---
+
+# 🛠️ Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| 🐍 Python | Core programming and ETL |
+| 🐼 Pandas | Data cleaning and transformation |
+| 🔢 NumPy | Data generation and numerical operations |
+| 🗄️ SQLite | Analytical database |
+| 🔎 SQL | Business analytics |
+| 📊 Plotly | Interactive visualizations |
+| 🎈 Streamlit | Dashboard and web application |
+| 🌐 GitHub | Version control |
+| ☁️ Streamlit Community Cloud | Deployment |
+
+---
+
+# 📁 Project Structure
+
+```text
+ecommerce-sales-intelligence/
+│
+├── 📊 app.py
+│
+├── 📂 data/
 │   ├── raw_sales.csv
 │   └── cleaned_sales.csv
-├── etl/
+│
+├── 📂 etl/
 │   └── pipeline.py
-├── sql/
+│
+├── 📂 sql/
 │   └── analytics.sql
-├── requirements.txt
-├── README.md
-└── .gitignore
+│
+├── 📄 requirements.txt
+├── 📄 README.md
+└── 📄 .gitignore
 ```
 
-`raw_sales.csv`, `cleaned_sales.csv`, and `sales.db` are generated by the pipeline. For a lightweight GitHub repository, you can omit the generated files from Git and let the deployed Streamlit app create them automatically on first run.
+The ETL pipeline also creates:
 
-## How to Run
+```text
+sales.db
+```
 
-### 1. Create and activate a virtual environment
+---
 
-Windows:
+# ⚡ Quick Start
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ecommerce-sales-intelligence.git
+```
+
+```bash
+cd ecommerce-sales-intelligence
+```
+
+---
+
+## 2. Create a virtual environment
+
+### Windows
 
 ```bash
 python -m venv .venv
+```
+
+```bash
 .venv\Scripts\activate
 ```
 
-macOS/Linux:
+### macOS / Linux
 
 ```bash
 python3 -m venv .venv
+```
+
+```bash
 source .venv/bin/activate
 ```
 
-### 2. Install dependencies
+---
+
+## 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run ETL
+---
+
+## 4. Run the ETL pipeline
 
 ```bash
 python etl/pipeline.py
 ```
 
-### 4. Launch dashboard
+Expected output:
+
+```text
+Number of raw records: 20100
+Number of cleaned records: 20000
+Number of duplicates removed: 100
+Number of missing values handled: 80
+Total revenue: ₹5,785,265.72
+Total profit: ₹1,848,293.97
+Pipeline completed successfully.
+```
+
+---
+
+## 5. Launch the dashboard
 
 ```bash
 streamlit run app.py
 ```
 
-The app will automatically run the ETL pipeline if its cleaned CSV/database do not exist.
+The dashboard will open in your browser.
 
-## SQL Analytics
+---
 
-Open `sql/analytics.sql` with a SQLite client or run individual queries against `sales.db`. The file contains queries for revenue, profit, orders, customers, AOV, monthly trends, category/region performance, top products/customers, discounts, and profit margins.
+# ☁️ Deploy to Streamlit Community Cloud
 
-## Deployment
+The application is designed to be deployed without:
 
-1. Push the repository to GitHub.
+- ❌ Docker
+- ❌ PostgreSQL
+- ❌ AWS
+- ❌ Kubernetes
+- ❌ Airflow
+- ❌ External APIs
+
+### Deployment steps
+
+1. Push the project to GitHub.
 2. Open Streamlit Community Cloud.
 3. Sign in with GitHub.
-4. Create a new app and select this repository.
-5. Set the main file to `app.py`.
-6. Deploy.
+4. Select **Create App**.
+5. Choose your repository.
+6. Select branch:
 
-No PostgreSQL, Docker, AWS, or local server is required.
+```text
+main
+```
 
-## Business Questions Answered
+7. Set the main file:
 
-- What products generate the most revenue?
-- Which categories are most profitable?
-- Which regions perform best?
-- How does revenue change over time?
-- Who are the highest-value customers?
-- What is the average order value?
+```text
+app.py
+```
 
-## Future Improvements
+8. Click **Deploy**.
 
+The application automatically creates the data and SQLite database if they do not already exist.
+
+---
+
+# 🧪 Data Quality Demonstration
+
+The project intentionally introduces a small amount of imperfect data to demonstrate real ETL practices.
+
+For example:
+
+```text
+Raw records
+    ↓
+20,100
+    ↓
+Duplicate detection
+    ↓
+100 duplicates removed
+    ↓
+Missing-value handling
+    ↓
+20,000 clean records
+```
+
+This makes the project more representative of a real-world data pipeline than simply generating perfectly clean data.
+
+---
+
+# 💡 Business Insights
+
+The dashboard dynamically identifies:
+
+### 🏆 Highest Revenue Category
+
+Which product category generates the most revenue?
+
+### 🌎 Best Region
+
+Which geographical region contributes the most revenue?
+
+### 💰 Most Profitable Category
+
+Which category contributes the most profit?
+
+### 📦 Best-Selling Product
+
+Which product has the highest quantity sold?
+
+### 👑 Highest-Value Customer
+
+Which customer generates the most revenue?
+
+### 📅 Best-Performing Month
+
+Which month produced the highest revenue?
+
+All insights update automatically when dashboard filters change.
+
+---
+
+# 🎓 What This Project Demonstrates
+
+This project intentionally combines **Data Engineering + Data Analytics**.
+
+### Data Engineering
+
+```text
+Data Generation
+      ↓
+ETL
+      ↓
+Data Quality
+      ↓
+Transformation
+      ↓
+Feature Engineering
+      ↓
+Database Loading
+```
+
+### Data Analytics
+
+```text
+SQL
+ ↓
+KPIs
+ ↓
+Aggregations
+ ↓
+Trends
+ ↓
+Visualization
+ ↓
+Business Insights
+```
+
+### Final Product
+
+```text
+             DATA
+              ↓
+         ENGINEERING
+              ↓
+          ANALYTICS
+              ↓
+       VISUALIZATION
+              ↓
+     BUSINESS DECISIONS
+```
+
+---
+
+# 📈 How I Would Scale This
+
+This project intentionally uses a lightweight architecture because it is designed as a portfolio project.
+
+For a production environment, I would evolve it into:
+
+```text
+Raw Data
+    ↓
+Cloud Object Storage
+    ↓
+Airflow
+    ↓
+Data Validation
+    ↓
+dbt Transformations
+    ↓
+PostgreSQL / Data Warehouse
+    ↓
+BI / Streamlit
+```
+
+### Possible improvements
+
+- PostgreSQL instead of SQLite
+- Cloud storage
 - Airflow orchestration
-- PostgreSQL
-- Cloud object storage
-- Real-time ingestion
 - dbt transformations
-- Docker
+- Incremental pipelines
+- Data quality monitoring
 - CI/CD
-- Machine-learning forecasting
+- Docker
+- Real-time event ingestion
+- ML-based sales forecasting
+- Automated alerts
 
-## Interview Talking Points
+---
 
-### 60-second explanation
+# 🔮 Future Roadmap
 
-“I built an E-Commerce Sales Intelligence Platform to demonstrate an end-to-end analytics workflow. I generated about 20,000 reproducible transactions with realistic categories, products, regions, prices, quantities, discounts and payment methods. A Python/Pandas ETL pipeline extracts the raw CSV, removes duplicates, handles missing values, validates fields, and creates revenue, cost, profit, margin and time features. The transformed data is loaded into SQLite and queried with SQL for business metrics. Finally, Streamlit and Plotly provide an interactive dashboard with executive KPIs, product analytics, customer segmentation and a data explorer. The project is GitHub-ready and deployable on Streamlit Community Cloud.”
+### Phase 1 — Current
 
-### 2-minute technical explanation
+- [x] Synthetic data generation
+- [x] ETL pipeline
+- [x] Data cleaning
+- [x] Feature engineering
+- [x] SQLite database
+- [x] SQL analytics
+- [x] Streamlit dashboard
+- [x] Product analytics
+- [x] Customer analytics
+- [x] Business insights
 
-“The pipeline starts with reproducible synthetic transaction generation using NumPy. The raw data is stored as CSV. The ETL layer reads that file, removes duplicate order IDs, fills missing categorical values, converts dates and numeric fields, clips invalid quantity/discount values, and standardizes text. Feature engineering calculates gross sales, discount amount, revenue, estimated cost, profit, profit margin and calendar fields. The cleaned dataset is written to CSV and loaded into SQLite with indexes on date, category and region. SQL analytics then calculates core KPIs and grouped business metrics. The Streamlit layer reads the SQLite table, applies sidebar filters, computes filtered KPIs and creates interactive Plotly charts. If the database is missing, the application executes the ETL pipeline automatically, which makes first-time deployment simple.”
+### Phase 2 — Production Architecture
 
-### Architecture
+- [ ] PostgreSQL
+- [ ] Airflow
+- [ ] dbt
+- [ ] Cloud storage
+- [ ] CI/CD
 
-`Raw CSV → Python/Pandas ETL → Clean CSV + SQLite → SQL analytics → Streamlit/Plotly dashboard`
+### Phase 3 — Advanced Analytics
 
-### ETL explanation
+- [ ] Sales forecasting
+- [ ] Customer churn prediction
+- [ ] Customer lifetime value
+- [ ] Product recommendation
+- [ ] Real-time analytics
 
-- **Extract:** read `raw_sales.csv`.
-- **Transform:** deduplicate, clean missing/invalid values, standardize dimensions, calculate sales/profit/time features.
-- **Load:** write `cleaned_sales.csv` and replace the SQLite `sales` table.
+---
 
-### Why Pandas?
+# 🧑‍💻 Interview Pitch
 
-“Pandas is fast to develop with and is excellent for tabular data cleaning, transformation, aggregation and CSV handling. For a 20,000-row portfolio dataset it is more than sufficient.”
+### 60 Seconds
 
-### Why SQLite?
+> **"I built an end-to-end E-Commerce Sales Intelligence Platform using Python, Pandas, NumPy, SQLite, SQL, Streamlit and Plotly. I generated more than 20,000 realistic transactions and created an ETL pipeline that extracts the raw CSV, removes duplicates, handles missing values, validates data and performs feature engineering. I calculated metrics such as revenue, discount amount, estimated cost, profit and profit margin. The cleaned data is loaded into SQLite, where I use SQL to perform business analytics such as monthly revenue, category performance, regional performance and top customers and products. Finally, I built an interactive Streamlit dashboard with KPI cards, product analytics, customer segmentation, filters and dynamic business insights. The application is GitHub-ready and deployable through Streamlit Community Cloud."**
 
-“SQLite is serverless, built into Python, easy to deploy, and supports real SQL. It demonstrates database and SQL skills without requiring a separate database server.”
+---
 
-### Why SQL?
+# 📄 Resume Version
 
-“SQL is ideal for aggregation and business analysis such as revenue by category, monthly revenue, top customers and profit margins. It is also a core data analyst/data engineer skill.”
+**E-Commerce Sales Intelligence Platform | Python, Pandas, NumPy, SQL, SQLite, Streamlit, Plotly**
 
-### Why Streamlit?
+- Developed an end-to-end **Data Engineering and Analytics pipeline** processing **20K+ e-commerce transactions** using Python, Pandas and NumPy.
+- Implemented ETL workflows including **deduplication, missing-value handling, validation, standardization and feature engineering**.
+- Engineered revenue, discount, cost, profit, profit-margin and time-based analytical features.
+- Built SQL analytics for **revenue, profit, AOV, customer, product, category, regional and monthly performance**.
+- Developed an interactive **Streamlit + Plotly dashboard** featuring KPI monitoring, product analytics, customer segmentation, dynamic filtering and CSV export.
+- Prepared the application for **GitHub version control and Streamlit Community Cloud deployment**.
 
-“Streamlit lets me turn Python analytics into an interactive web application very quickly, which is ideal for a two-hour portfolio project.”
+---
 
-### What transformations were performed?
+# 🌐 GitHub Repository
 
-“Duplicates were removed, missing values handled, dates and numeric fields converted/validated, dimensions standardized, and gross sales, discount amount, revenue, estimated cost, profit, margin and calendar features were created.”
+If you found this project useful, feel free to explore the code and architecture.
 
-### How would you scale it?
+```text
+⭐ Star the repository
+🍴 Fork the project
+💡 Build your own version
+```
 
-“I would move raw data to cloud object storage, use PostgreSQL or a cloud warehouse, partition large datasets, use incremental processing, orchestrate with Airflow, add dbt for SQL transformations, and introduce monitoring and CI/CD.”
+---
 
-### How would you migrate SQLite to PostgreSQL?
+# 👨‍💻 Author
 
-“I would create an equivalent PostgreSQL schema, change the connection layer from sqlite3 to a PostgreSQL driver, load the cleaned data with bulk inserts, recreate indexes, and update the dashboard configuration to use the PostgreSQL connection.”
+**Nitin Kumar Rajvanshi**
 
-### How would you implement Airflow?
+Data Analytics | Data Engineering | Python | SQL
 
-“I would create DAG tasks such as generate/extract, validate, transform, load, quality-check and notify. Dependencies would ensure the load only runs after successful transformation.”
+📌 Built as a portfolio project demonstrating an end-to-end analytics workflow.
 
-### How would you handle millions of records?
+---
 
-“I would avoid loading everything into Pandas at once. I would use database-side SQL, partitioned files/tables, incremental batches, bulk loading, indexes and a warehouse or distributed processing system if required.”
+# ⭐ Final Takeaway
 
-### How would you implement data-quality checks?
+> **Good analytics does not start with a dashboard.**
+>
+> It starts with reliable data.
 
-“I would check uniqueness of order IDs, null rates, valid date ranges, positive quantities, non-negative prices, discount bounds, valid categories/regions and reconciliation between revenue and its component calculations.”
+This project demonstrates the complete journey:
 
-### How would you implement incremental ETL?
+```text
+RAW DATA
+   ↓
+CLEAN DATA
+   ↓
+ENGINEERED DATA
+   ↓
+DATABASE
+   ↓
+SQL
+   ↓
+ANALYTICS
+   ↓
+DASHBOARD
+   ↓
+BUSINESS INSIGHTS
+   ↓
+BETTER DECISIONS
+```
 
-“I would store a watermark such as the maximum processed order date or ingestion timestamp, read only newer records on the next run, transform them, and append/upsert them into the target.”
-
-### How would you implement real-time ingestion?
-
-“I would ingest events through a message broker such as Kafka, validate and transform streaming events, write them into a durable store, and expose near-real-time aggregates to the dashboard.”
-
-### What challenges did you face?
-
-“A key challenge was balancing realism with simplicity. I introduced controlled data variation and a few intentional data-quality issues so the ETL demonstrates practical cleaning without requiring external systems.”
-
-### What business insights does the dashboard provide?
-
-“It shows which categories, products and regions drive revenue and profit, how performance changes monthly, which customers are highest value, the average order value, and how customer revenue segments are distributed.”
-
-## Resume Bullet Points
-
-- Built an end-to-end **E-Commerce Sales Intelligence Platform** using Python, Pandas, NumPy, SQLite, SQL, Streamlit and Plotly.
-- Developed a reproducible ETL pipeline for **20K+ synthetic transactions**, including deduplication, missing-value handling, validation and feature engineering.
-- Designed SQL analytics for revenue, profit, AOV, customer, category, region and monthly performance analysis.
-- Created an interactive Streamlit dashboard with KPI cards, Plotly visualizations, product/customer analytics, filters and CSV export.
-- Prepared the application for GitHub and Streamlit Community Cloud deployment with automatic first-run ETL.
-
-## GitHub Project Description
-
-End-to-end e-commerce Data Analytics + Data Engineering project using Python, Pandas, SQLite, SQL, Streamlit and Plotly. Includes reproducible data generation, ETL, data quality handling, feature engineering, business SQL analytics, interactive dashboards, customer segmentation and dynamic business insights.
+**Built with Python. Powered by SQL. Visualized with Streamlit. Designed for business decisions.**
