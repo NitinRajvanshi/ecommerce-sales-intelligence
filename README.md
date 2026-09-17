@@ -12,7 +12,7 @@
 
 ## 🚀 Live Dashboard
 
-🔗 **[Launch the Live Streamlit Dashboard](YOUR_STREAMLIT_APP_URL)**
+🔗 **[ Live Streamlit Dashboard](https://ecommerce-sales-intelligence-fjfdc8yxuulumgb6gxasoi.streamlit.app/)**
 
 > Replace `YOUR_STREAMLIT_APP_URL` with your Streamlit Community Cloud URL after deployment.
 
@@ -746,15 +746,16 @@ BI / Streamlit
 
 ---
 
-# 🧑‍💻 Interview Pitch
+# 🧑‍💻 summary
 
-### 60 Seconds
+
+
 
 > **"I built an end-to-end E-Commerce Sales Intelligence Platform using Python, Pandas, NumPy, SQLite, SQL, Streamlit and Plotly. I generated more than 20,000 realistic transactions and created an ETL pipeline that extracts the raw CSV, removes duplicates, handles missing values, validates data and performs feature engineering. I calculated metrics such as revenue, discount amount, estimated cost, profit and profit margin. The cleaned data is loaded into SQLite, where I use SQL to perform business analytics such as monthly revenue, category performance, regional performance and top customers and products. Finally, I built an interactive Streamlit dashboard with KPI cards, product analytics, customer segmentation, filters and dynamic business insights. The application is GitHub-ready and deployable through Streamlit Community Cloud."**
 
 ---
 
-# 📄 Resume Version
+# 📄 Key points 
 
 **E-Commerce Sales Intelligence Platform | Python, Pandas, NumPy, SQL, SQLite, Streamlit, Plotly**
 
